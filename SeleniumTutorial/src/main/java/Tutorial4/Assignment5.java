@@ -1,6 +1,7 @@
 package Tutorial4;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -61,7 +62,7 @@ public class Assignment5 {
 		System.out.println("Email Id :" + emailval);
 		
 		//Perform Operation on male/female radio button
-		
+	
 		WebElement gender1 = driver.findElement(By.cssSelector("label[for='gender-radio-1']"));
 		WebElement gender2 = driver.findElement(By.cssSelector("label[for='gender-radio-2']"));
 		
@@ -75,8 +76,12 @@ public class Assignment5 {
 		System.out.println("Female radio button enabled :" + f1);
 		System.out.println("Female radio button displayed :" + f2);
 		
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", gender2);
+		Thread.sleep(500); 
 		gender2.click();
 		
+		
+		Thread.sleep(5000);
 		boolean d1 = gender1.isSelected();
 		boolean d2 = gender2.isSelected();
 		
@@ -108,9 +113,40 @@ public class Assignment5 {
 		
 		sports.click();
 		
+		Thread.sleep(5000);
+		
 		boolean s3 = sports.isSelected();
 		System.out.println("Sports textbox is selected :" + s3);
 		
+		//Perform Operation on address text box
+
+		WebElement address = driver.findElement(By.id("currentAddress"));
+		
+		boolean ad1 = address.isEnabled();
+		boolean ad2 = address.isDisplayed();
+		
+		System.out.println("Address box is enabled :" + ad1);
+		System.out.println("Address box is displayed :" + ad2);
+		
+		address.sendKeys("Aaapte Road,Pune-04");
+		
+		String ad3 = address.getAttribute("value");
+		System.out.println("Address :" + ad3);
+		
+		//Perform Operation on submit button
+		
+		WebElement ob = driver.findElement(By.id("submit"));
+		
+		boolean ob1 = ob.isEnabled();
+		boolean ob2 = ob.isDisplayed();
+		
+		System.out.println("Submit button enable :" + ob1);
+		System.out.println("Submit button displayed :" + ob2);
+		
+		String ob3 = ob.getText();
+		System.out.println("Submit button text :" + ob3);
+		
+		ob.click();
 		
 
 				
