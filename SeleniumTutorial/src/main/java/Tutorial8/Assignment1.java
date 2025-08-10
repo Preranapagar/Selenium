@@ -45,6 +45,31 @@ public class Assignment1 {
 		System.out.println(a);
 		alt.accept();
 		
+		Thread.sleep(2000);
+		driver.switchTo().defaultContent();
+		
+		driver.switchTo().frame("frm2");
+		
+		System.out.println("Switched to frame 2");
+		
+		WebElement wb2 = driver.findElement(By.id("selectnav1"));
+		Select controlsel = new Select(wb2);
+		controlsel.selectByVisibleText("- Basic Controls");
+		
+		driver.findElement(By.id("firstName")).sendKeys("Apoorva");
+		driver.findElement(By.id("lastName")).sendKeys("Patil");
+		driver.findElement(By.id("femalerb")).click();
+		driver.findElement(By.id("englishchbx")).click();
+		driver.findElement(By.id("hindichbx")).click();
+		driver.findElement(By.id("spanishchbx")).click();
+		driver.findElement(By.id("email")).sendKeys("apoorva@gmail.com");
+		driver.findElement(By.id("password")).sendKeys("patil789");
+		
+		
+		System.out.println("Details Entered");
+		Thread.sleep(3000);
+		driver.close();
+		
 		
 		
 		
