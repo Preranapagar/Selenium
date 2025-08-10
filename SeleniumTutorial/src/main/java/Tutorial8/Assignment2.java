@@ -2,6 +2,7 @@ package Tutorial8;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Assignment2 {
@@ -23,14 +24,20 @@ public class Assignment2 {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//a[text()='Iframe with in an Iframe']")).click();
 		
-		driver.switchTo().frame(0);
+		WebElement frame1 = driver.findElement(By.cssSelector("iframe[src=\"MultipleFrames.html\"]"));
+		driver.switchTo().frame(frame1);
 		System.out.println("Frame switched to Nested Parent");
 		
+		Thread.sleep(2000);
 		driver.switchTo().frame(0);
 		System.out.println("Frame switched to Nested Child");
 		
+	
 		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("input[type='text']")).sendKeys("Another Success");
+		driver.findElement(By.cssSelector("div.col-xs-6.col-xs-offset-5 input")).sendKeys("Another Success");
+		
+		Thread.sleep(2000);
+		driver.close();
 		
 		
 		
