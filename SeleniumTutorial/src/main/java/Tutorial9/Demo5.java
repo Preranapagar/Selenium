@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class Demo5 {
-	public static void main(String[]args) {
+	public static void main(String[]args) throws InterruptedException {
 		
 		WebDriver driver = new ChromeDriver();
 		
@@ -15,11 +15,23 @@ public class Demo5 {
 		
 		driver.get("https://jqueryui.com/droppable");
 		
-		WebElement wb = driver.findElement(By.cssSelector("div#draggable"));
+		WebElement frame = driver.findElement(By.className("demo-frame"));
+		
+		driver.switchTo().frame(frame);
+		
+		WebElement wb = driver.findElement(By.xpath("//div[@id='draggable']"));
 		
 		Actions act = new Actions(driver);
 		
 		act.clickAndHold(wb).build().perform();
+		
+		WebElement wb2 = driver.findElement(By.id("droppable"));
+		
+		act.release(wb2).build().perform();
+		
+		Thread.sleep(2000);
+		
+		driver.close();
 	}
 
 }
