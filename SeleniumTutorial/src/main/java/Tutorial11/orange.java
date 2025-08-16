@@ -42,7 +42,7 @@ public class orange {
 		Thread.sleep(2000);
 		
 		//enter first name, middle name, last name
-		driver.findElement(By.name("firstName")).sendKeys("Ketan");
+		driver.findElement(By.name("firstName")).sendKeys("Aniket");
 		driver.findElement(By.name("middleName")).sendKeys("A");
 		driver.findElement(By.name("lastName")).sendKeys("Patil");
 		Thread.sleep(2000);
