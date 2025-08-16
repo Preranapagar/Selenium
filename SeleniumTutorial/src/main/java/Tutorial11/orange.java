@@ -1,9 +1,11 @@
 package Tutorial11;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class orange {
 
@@ -42,7 +44,7 @@ public class orange {
 		Thread.sleep(2000);
 		
 		//enter first name, middle name, last name
-		driver.findElement(By.name("firstName")).sendKeys("Aniket");
+		driver.findElement(By.name("firstName")).sendKeys("Kedar");
 		driver.findElement(By.name("middleName")).sendKeys("A");
 		driver.findElement(By.name("lastName")).sendKeys("Patil");
 		Thread.sleep(2000);
@@ -52,9 +54,26 @@ public class orange {
 		Thread.sleep(5000);
 		
 		//capture employee id
-		WebElement empid = driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div"));
-		String emp_id = empid.getText();
+		WebElement empid = driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/child::input"));
+		String emp_id = empid.getAttribute("value");
 		System.out.println(emp_id);
+		
+		Thread.sleep(2000);
+		
+		//select Marital Status using actions class
+		Actions act = new Actions(driver);
+		
+		WebElement ms = driver.findElement(By.xpath("//label[text()='Marital Status']/parent::div/following-sibling::div/descendant::div[@class='oxd-select-text-input']"));
+		
+		act.click(ms).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
+		
+		Thread.sleep(2000);
+		
+		//click on male/female radio button
+		driver.findElement(By.xpath("//input[@type='radio' and @value='1']/following-sibling::span")).click();
+		
+		Thread.sleep(2000);
+		driver.close();
 		
 
 	}
