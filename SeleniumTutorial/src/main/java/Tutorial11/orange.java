@@ -51,7 +51,7 @@ public class orange {
 		
 		//click on save button
 		driver.findElement(By.cssSelector("button[type='submit']")).click();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		
 		//capture employee id
 		WebElement empid = driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/child::input"));
@@ -71,9 +71,17 @@ public class orange {
 		
 		//click on male/female radio button
 		driver.findElement(By.xpath("//input[@type='radio' and @value='1']/following-sibling::span")).click();
+		Thread.sleep(2000);
+		
+		//click on save button
+		driver.findElement(By.xpath("//div[@class='orangehrm-horizontal-padding orangehrm-vertical-padding']/descendant::button[@type='submit']")).click();
+		Thread.sleep(2000);
+		
+		//click on employee list button
+		
 		
 		Thread.sleep(2000);
-		driver.close();
+		//driver.close();
 		
 
 	}
