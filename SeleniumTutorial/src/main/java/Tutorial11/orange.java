@@ -153,6 +153,7 @@ public class orange {
 		//capture employee name
 		WebElement empname = driver.findElement(By.cssSelector("[class='oxd-userdropdown-name']"));
 		String name = empname.getText();
+		
 		System.out.println("Emloyee Name :" + empname);
 		
 		
