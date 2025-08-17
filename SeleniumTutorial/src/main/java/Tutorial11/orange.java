@@ -58,7 +58,7 @@ public class orange {
 		String emp_id = empid.getAttribute("value");
 		System.out.println(emp_id);
 		
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//select Marital Status using actions class
 		Actions act = new Actions(driver);
@@ -78,8 +78,56 @@ public class orange {
 		Thread.sleep(2000);
 		
 		//click on employee list button
+		driver.findElement(By.xpath("//a[text()='Employee List']")).click();
+		Thread.sleep(2000);
 		
+		//enter captured employee id in employee id text box
+		driver.findElement(By.xpath("//label[text()='Employee Id']/parent::div/following-sibling::div/child::input")).sendKeys(emp_id);
+		Thread.sleep(2000);
 		
+		//click on search button
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(2000);
+		
+		//click on admin link
+		driver.findElement(By.xpath("//span[text()='Admin']")).click();
+		System.out.println("Admin button clicked");
+		Thread.sleep(2000);
+		
+		//click on add button
+		driver.findElement(By.xpath("//button[@class='oxd-button oxd-button--medium oxd-button--secondary']")).click();
+		System.out.println("Add button clicked");
+		Thread.sleep(2000);
+		
+		//Select user role using actions class
+		WebElement user = driver.findElement(By.xpath("//label[text()='User Role']/parent::div/following-sibling::div/descendant::div[@class='oxd-select-text-input']"));
+		act.click(user).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
+		System.out.println("user role selected");
+		Thread.sleep(2000);
+		
+		//enter employee name and select from suggestion employee name
+		WebElement en = driver.findElement(By.xpath("//label[text()='Employee Name']/parent::div/following-sibling::div/descendant::input"));
+		en.sendKeys("Ke");
+		Thread.sleep(3000);
+		act.moveToElement(en).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
+		
+		//Select enabled status using actions class
+		WebElement status = driver.findElement(By.xpath("//label[text()='Status']/parent::div/following-sibling::div/descendant::div[@class='oxd-select-text-input']")); 
+		act.click(status).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
+		
+		//enter employee username, password and confirm password
+		
+		//click on save button
+		
+		//click on profile icon, and click on logout button
+		
+		//enter employee username
+		
+		//enter employee password
+		
+		//click on login button
+		
+		//capture employee name
 		Thread.sleep(2000);
 		//driver.close();
 		
