@@ -22,18 +22,17 @@ public class olxassignment {
 		Thread.sleep(12000);
 		
 		//Click on Location drop down
-		WebElement location = driver.findElement(By.xpath("//input[starts-with(@placeholder,'Search')]"));
+		WebElement location = driver.findElement(By.xpath("//div[@data-aut-id='locationBox']"));
+		location.click();
+		Thread.sleep(7000);
 		
 		//Enter PUNE keyword in Location Text box
+		location.clear();
+		Thread.sleep(5000);
+		location.sendKeys("Pune");
+		Thread.sleep(10000);
 		
-		Actions act = new Actions(driver);
-		
-		act.moveToElement(location).sendKeys(location,"Pune").keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
-		
-		//On Search Box search Car keyword and select suggested 1st car
-		WebElement search = driver.findElement(By.cssSelector("[data-aut-id='searchBox']"));
-		act.moveToElement(search).sendKeys(search,"Car").keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
-		
+		driver.findElement(By.xpath("//span[@class='_1qtOc COluN']/following-sibling::div/descendant::b[contains(text(),'Pune')]")).click();
 		
 	}
 
