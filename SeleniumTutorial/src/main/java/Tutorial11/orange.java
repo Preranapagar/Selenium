@@ -21,11 +21,16 @@ public class orange {
 		Thread.sleep(2000);
 		
 		//Enter username
-		driver.findElement(By.xpath("//input[@name='username' or placeholder='Username']")).sendKeys("Admin");
+		WebElement username = driver.findElement(By.xpath("//input[@name='username' or placeholder='Username']"));
+		username.sendKeys("Admin");
+		
 		//Enter Password
-		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
+		WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
+		password.sendKeys("admin123");
+		
 		//Click on login button
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		WebElement login = driver.findElement(By.xpath("//button[@type='submit']"));
+		login.click();
 		
 		//capture home page title and URL
 		String title = driver.getTitle();
@@ -44,9 +49,9 @@ public class orange {
 		Thread.sleep(2000);
 		
 		//enter first name, middle name, last name
-		driver.findElement(By.name("firstName")).sendKeys("Kedar");
-		driver.findElement(By.name("middleName")).sendKeys("A");
-		driver.findElement(By.name("lastName")).sendKeys("Patil");
+		driver.findElement(By.name("firstName")).sendKeys("Sankar");
+		driver.findElement(By.name("middleName")).sendKeys("Ehasan");
+		driver.findElement(By.name("lastName")).sendKeys("Loy");
 		Thread.sleep(2000);
 		
 		//click on save button
@@ -107,29 +112,52 @@ public class orange {
 		
 		//enter employee name and select from suggestion employee name
 		WebElement en = driver.findElement(By.xpath("//label[text()='Employee Name']/parent::div/following-sibling::div/descendant::input"));
-		en.sendKeys("Ke");
+		en.sendKeys("Sa");
 		Thread.sleep(3000);
 		act.moveToElement(en).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
 		
 		//Select enabled status using actions class
 		WebElement status = driver.findElement(By.xpath("//label[text()='Status']/parent::div/following-sibling::div/descendant::div[@class='oxd-select-text-input']")); 
-		act.click(status).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
+		act.click(status).keyDown(Keys.ARROW_DOWN).keyDown(Keys.ENTER).keyUp(Keys.ENTER).build().perform();
+		Thread.sleep(2000);
 		
 		//enter employee username, password and confirm password
+		driver.findElement(By.xpath("//label[text()='Username']/parent::div/following-sibling::div/child::input")).sendKeys("Ramayan");
+		driver.findElement(By.xpath("//label[text()='Password']/parent::div/following-sibling::div/child::input")).sendKeys("Anika123");
+		driver.findElement(By.xpath("//label[text()='Confirm Password']/parent::div/following-sibling::div/child::input")).sendKeys("Anika123");
+		Thread.sleep(2000);
+		
 		
 		//click on save button
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(4000);
+		System.out.println("login credentials created");
 		
 		//click on profile icon, and click on logout button
+		driver.findElement(By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']")).click();
+		driver.findElement(By.xpath("//a[text()='Logout']")).click();
+		System.out.println("logged out");
+		
+		Thread.sleep(3000);
 		
 		//enter employee username
+		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Ramayan");
 		
 		//enter employee password
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Anika123");
 		
 		//click on login button
+		driver.findElement(By.cssSelector("[type='submit']")).click();
+		Thread.sleep(3000);
 		
 		//capture employee name
+		WebElement empname = driver.findElement(By.cssSelector("[class='oxd-userdropdown-name']"));
+		String name = empname.getText();
+		System.out.println("Emloyee Name :" + empname);
+		
+		
 		Thread.sleep(2000);
-		//driver.close();
+		driver.close();
 		
 
 	}
