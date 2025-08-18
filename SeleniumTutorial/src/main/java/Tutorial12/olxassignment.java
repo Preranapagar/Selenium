@@ -65,16 +65,18 @@ public class olxassignment {
 		
 		Thread.sleep(4000);
 		
+		
 		WebElement src1 = driver.findElement(By.xpath(
 				"//span[text()='Budget']/parent::div/following-sibling::div/descendant::div[@class='rc-slider-handle rc-slider-handle-1' and @aria-valuenow='0']"));
 		
-		act.clickAndHold(src1).moveByOffset(50,0).release().build().perform();
+		act.clickAndHold(src1).moveByOffset(70,0).release().build().perform();
 		
 		Thread.sleep(2000);
 		
 		WebElement src2 = driver.findElement(By.xpath("//span[text()='Budget']/parent::div/following-sibling::div/descendant::div[@class='rc-slider-handle rc-slider-handle-2']"));
-		act.clickAndHold(src2).moveByOffset(-20,0).release().build().perform();
-
+		act.clickAndHold(src2).moveByOffset(-25,0).release().build().perform();
+		
+		
 
 		
 		}
