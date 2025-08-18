@@ -22,7 +22,7 @@ public class olxassignment {
 		Thread.sleep(12000);
 		
 		//Click on Location drop down
-		WebElement location = driver.findElement(By.xpath("//div[@data-aut-id='locationBox']"));
+		WebElement location = driver.findElement(By.xpath("//input[starts-with(@placeholder,'Search')]"));
 		location.click();
 		Thread.sleep(7000);
 		
@@ -33,7 +33,40 @@ public class olxassignment {
 		Thread.sleep(10000);
 		
 		driver.findElement(By.xpath("//span[@class='_1qtOc COluN']/following-sibling::div/descendant::b[contains(text(),'Pune')]")).click();
+		Thread.sleep(5000);
 		
-	}
+		//On Search Box search Car keyword and select suggested 1st car
+		driver.findElement(By.cssSelector("[data-aut-id='searchBox']")).sendKeys("Car");
+		Thread.sleep(7000);
+		
+		WebElement suggestedListFirstOption = driver.findElement(By.xpath("//li[@data-aut-id='searchSuggestionItem'][1]/child::div/descendant::span[text()='Cars']"));
+		
+		suggestedListFirstOption.click();
+		Thread.sleep(20000);
+		
+		//Scroll down to brands
+		Actions act = new Actions(driver);
+		Thread.sleep(7000);
+		WebElement allModels = driver.findElement(By.xpath("//div[text()='All Models']"));
+		act.scrollToElement(allModels).build().perform();
+		
+		Thread.sleep(4000);
+		WebElement allBrands = driver.findElement(By.xpath("//div[text()='All Brands']/following-sibling::div[contains(@class,'_3Ez9F')]"));
+		act.moveToElement(allBrands).click().sendKeys(Keys.PAGE_DOWN).build().perform();
+		
+		Thread.sleep(4000);
+		WebElement bmw = driver.findElement(By.xpath("//input[@id='c-make-bmw']"));
+		bmw.click();
+		
+		Thread.sleep(4000);
+		
+		WebElement year = driver.findElement(By.xpath("//span[text()='Year']"));
+		act.scrollToElement(year).build().perform();
+		
+		Thread.sleep(4000);
+
+
+		
+		}
 
 }
