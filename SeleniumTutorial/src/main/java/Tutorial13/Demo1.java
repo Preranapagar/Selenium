@@ -8,7 +8,7 @@ public class Demo1 {
 		
 		ChromeDriver driver = new ChromeDriver();
 		
-		driver.get();
+		driver.manage().window().maximize();
 
 	}
 
