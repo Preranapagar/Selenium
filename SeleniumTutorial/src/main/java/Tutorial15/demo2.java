@@ -18,6 +18,30 @@ public class demo2 {
 		driver.findElement(By.name("password")).sendKeys("admin123");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//span[text()='PIM']")).click();
+		
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//a[text()='Add Employee']")).click();
+		
+		Thread.sleep(2000);
+		
+		driver.findElement(By.name("firstName")).sendKeys("Natasha");
+		driver.findElement(By.name("lastName")).sendKeys("Atole");
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		
+		Thread.sleep(4000);
+		
+		driver.findElement(By.xpath("//label[text()='Nationality']/parent::div/following-sibling::div/descendant::div[@class='oxd-select-text-input']")).click();
+		
+		Thread.sleep(2000);
+		
+		
+		
+		
+		
 	}
 
 }
